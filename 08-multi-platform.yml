@@ -16,14 +16,14 @@
     service:
       name: httpd
       state: started
-     when: ansible_distribution == "Amazon"
+    when: ansible_distribution == "Amazon"
 
 
   - name: enable httpd
     service:
       name: httpd
       enabled: yes
-     when: ansible_distribution =="Amazon"
+    when: ansible_distribution =="Amazon"
 
 
   tasks:
@@ -31,21 +31,20 @@
     ansible.builtin.package:
       name: apache2
       state: present
-     when: ansible_distribution == "ubuntu"
+    when: ansible_distribution == "ubuntu"
 
 
   - name: start Apache2
     service:
       name: apache2
       state: started
-     when: ansible_distribution == "ubuntu"
+    when: ansible_distribution == "ubuntu"
 
   - name: Enable Apache2
     service:
       name: apache2
       enabled: yes
-     when: ansible_distribution == "ubuntu"
+    when: ansible_distribution == "ubuntu"
 ...
 
 
-ansible_distribution
