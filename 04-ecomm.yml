@@ -1,21 +1,18 @@
 ---
-- name: Install HTTP server
+- name: Deploy Web App
   hosts: n2
   become: yes
 
   tasks:
-  - name: install hTTPD
+  - name: install git
     yum:
-      name: httpd
+      name: git
       state: present
 
-  - name: start httpd
-    service:
-      name: httpd
-      state: started
+  - name: host code
+    git:
+      repo: https://github.com/CeeyIT-Solutions/ecomm-3.git
+      dest: /var/www/html/
 
-  - name: enable httpd
-    service:
-      name: httpd
-      enabled: yes
+...
   
