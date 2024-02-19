@@ -1,0 +1,21 @@
+---
+- name: Install Apache server
+  hosts: n5
+  become: yes
+
+  tasks:
+  - name: install Apache2
+    apt:
+      name: Apache2
+      state: present
+
+  - name: start Apache2
+    service:
+      name: Apache2
+      state: started
+
+  - name: Enable Apache2
+    service:
+      name: Apache2
+      enabled: yes
+  
