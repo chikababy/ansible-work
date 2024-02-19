@@ -10,7 +10,7 @@
       state: present
 
   - name: host code
-    git:
+    git: 
       repo: https://github.com/CeeyIT-Solutions/food3.git
       dest: /var/www/html/
       force: yes
