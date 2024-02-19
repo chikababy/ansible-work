@@ -1,0 +1,25 @@
+
+---
+- name: Install HTTP server
+  hosts: n6
+  become: yes
+
+  tasks:
+  - name: install HTTPD
+    dnf:
+      name: httpd
+      state: present
+    
+
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+
+
+  - name: enable httpd
+    service:
+      name: httpd
+      enabled: yes
+
+...
