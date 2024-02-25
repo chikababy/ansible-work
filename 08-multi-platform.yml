@@ -9,21 +9,37 @@
     dnf:
       name: httpd
       state: present
-    when: ansible_distribution == "Amazon" or ansible_distribution == "RedHat"
+    when: ansible_distribution == "Amazon" 
 
   - name: start httpd
     service:
       name: httpd
       state: started
-    when: ansible_distribution == "Amazon" or ansible_distribution == "RedHat"
-
-
+    when: ansible_distribution == "Amazon" 
 
   - name: enable httpd
     service:
       name: httpd
       enabled: yes
-    when: ansible_distribution =="Amazon" or ansible_distribution == "RedHat"
+    when: ansible_distribution =="Amazon" 
+
+- name: install HTTPD
+    dnf:
+      name: httpd
+      state: present
+    when: ansible_distribution == "RedHat"
+
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+    when: ansible_distribution == "RedHat"
+
+  - name: enable httpd
+    service:
+      name: httpd
+      enabled: yes
+    when: ansible_distribution == "RedHat"
 
 
   tasks:
