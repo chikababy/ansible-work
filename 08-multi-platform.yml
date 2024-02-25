@@ -49,26 +49,26 @@
   - name: Update apt package cache
     apt:
       update_cache: yes
-    when: ansible_distribution == "Debian"
+    when: ansible_os_family == 'Debian'
 
   - name: install Apache2
     apt:
       name: apache2
       state: present
-    when: ansible_distribution == "Debian"
+    when: ansible_os_family == 'Debian'
 
 
   - name: start Apache2
     service:
       name: apache2
       state: started
-    when: ansible_distribution == "Debian"
+    when: ansible_os_family == 'Debian'
 
   - name: Enable Apache2
     service:
       name: apache2
       enabled: yes
-    when: ansible_distribution == "Debian"
+    when: ansible_os_family == 'Debian'
 
 ...
 
