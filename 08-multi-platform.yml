@@ -46,10 +46,10 @@
       enabled: yes
     when: ansible_distribution == "ubuntu" or ansible_distribution == "Debian"
 
-- name: Update apt package cache
-  apt:
-    update_cache: yes
-  when: ansible_distribution == "Debian"
+  - name: Update apt package cache
+    apt:
+      update_cache: yes
+    when: ansible_distribution == "Debian"
 
  - name: install Apache2
     ansible.builtin.package:
