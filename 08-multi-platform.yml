@@ -10,20 +10,21 @@
     dnf:
       name: httpd
       state: present
-    when: ansible_distribution == "Amazon"
+    when: ansible_distribution == "Amazon" or ansible_distribution == "RedHat"
 
   - name: start httpd
     service:
       name: httpd
       state: started
-    when: ansible_distribution == "Amazon"
+    when: ansible_distribution == "Amazon" or ansible_distribution == "RedHat"
+
 
 
   - name: enable httpd
     service:
       name: httpd
       enabled: yes
-    when: ansible_distribution =="Amazon"
+    when: ansible_distribution =="Amazon" or ansible_distribution == "RedHat"
 
 
   tasks:
@@ -31,20 +32,20 @@
     ansible.builtin.package:
       name: apache2
       state: present
-    when: ansible_distribution == "ubuntu"
+    when: ansible_distribution == "ubuntu" or ansible_distribution == "Debian"
 
 
   - name: start Apache2
     service:
       name: apache2
       state: started
-    when: ansible_distribution == "ubuntu"
+    when: ansible_distribution == "ubuntu" or ansible_distribution == "Debian"
 
   - name: Enable Apache2
     service:
       name: apache2
       enabled: yes
-    when: ansible_distribution == "ubuntu"
+    when: ansible_distribution == "ubuntu" or ansible_distribution == "Debian"
 ...
 
 
