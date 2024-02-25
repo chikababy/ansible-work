@@ -1,0 +1,12 @@
+---
+- name: under maintenance
+  hosts: g3
+  become: yes
+
+  tasks:
+  - name: update static page
+    template:
+      src: dynamic.j2
+      dest: /var/www/html/dynamic.html
+
+...
