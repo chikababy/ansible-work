@@ -52,7 +52,7 @@
     when: ansible_distribution == "Debian"
 
  - name: install Apache2
-    ansible.builtin.package:
+    apt:
       name: apache2
       state: present
     when: ansible_distribution == "Debian"
