@@ -1,0 +1,61 @@
+
+    - name: Install HTTPD on Amazon Linux
+      dnf:
+        name: httpd
+        state: present
+      when: ansible_distribution == "Amazon"
+
+    - name: Start httpd on Amazon Linux
+      service:
+        name: httpd
+        state: started
+      when: ansible_distribution == "Amazon"
+
+    - name: Enable httpd on Amazon Linux
+      service:
+        name: httpd
+        enabled: yes
+      when: ansible_distribution == "Amazon"
+
+    - name: Install HTTPD on RedHat
+      dnf:
+        name: httpd
+        state: present
+      when: ansible_distribution == "RedHat"
+
+    - name: Start httpd on RedHat
+      service:
+        name: httpd
+        state: started
+      when: ansible_distribution == "RedHat"
+
+    - name: Enable httpd on RedHat
+      service:
+        name: httpd
+        enabled: yes
+      when: ansible_distribution == "RedHat"
+
+    - name: Install Apache2 on Debian/Ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+
+    - name: Start Apache2 on Debian/Ubuntu
+      service:
+        name: apache2
+        state: started
+      when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+
+    - name: Enable Apache2 on Debian/Ubuntu
+      service:
+        name: apache2
+        enabled: yes
+      when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+
+    - name: Update apt package cache on Debian
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Debian'
+
+...  # Add more tasks or plays as needed
